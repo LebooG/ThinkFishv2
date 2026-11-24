@@ -1,8 +1,9 @@
 import Link from 'next/link';
+import Platform from '@/components/Platform';
 import CaseStudies from '@/components/CaseStudies';
 import JsonLd from '@/components/JsonLd';
-import { ArtDfy, ArtMotion, ArtRaise } from '@/components/art';
-import { Cards, Hero, NewsletterSection, Prim, SecHead, Stats } from '@/components/ui';
+import { ArtDfy } from '@/components/art';
+import { Cards, Hero, NewsletterSection, SecHead, Stats } from '@/components/ui';
 import { buildMetadata, webPageJsonLd } from '@/lib/seo';
 
 const HOME_TITLE = 'ThinkFISH — Fundraising or Go-to-Market | Done-for-you growth';
@@ -57,42 +58,9 @@ export default function Home() {
         </Link>
       </Hero>
 
-      <section id="choose-your-growth-path">
+      <section id="choose-your-growth-path" className="plat-sec">
         <div className="wrap">
-          <SecHead
-            eyebrow="What we do"
-            title="Fundraising or Go-to-Market. What's your next move?"
-            lead="We accelerate growth for ambitious companies through two specialized done-for-you services: strategic fundraising for capital needs and precision B2B lead generation for customer acquisition."
-          />
-          <Prim
-            num="01 · ThinkFISH Raise"
-            title="Done-For-You Fundraising"
-            text="Raise smarter. Close faster. Our done-for-you service connects you with the right investors and accelerates your funding journey."
-            ticks={[
-              'AI Investor Matching — connect with the right investors based on your industry, stage, and funding needs',
-              'Pitch Optimization — AI-powered feedback to perfect your pitch deck and presentation',
-              'Due Diligence Hub — secure document management and investor communication portal',
-            ]}
-            chips={['Startups', 'Real Estate', 'Funds']}
-            cta="See how we raise capital"
-            href="/raise"
-            art={<ArtRaise />}
-          />
-          <Prim
-            flip
-            num="02 · ThinkFISH Motion"
-            title="Done-For-You Lead Generation"
-            text="Book qualified meetings with your dream clients. Our done-for-you service scales your sales pipeline with precision targeting."
-            ticks={[
-              'Smart Lead Generation — AI-powered prospecting to identify and qualify high-value B2B leads',
-              'Automated Outreach — personalized email sequences and multi-channel engagement campaigns',
-              'Conversion Analytics — track performance and optimize your sales funnel with detailed insights',
-            ]}
-            chips={['B2B', 'Multi-channel', 'Pipeline']}
-            cta="See how we fill your pipeline"
-            href="/motion"
-            art={<ArtMotion />}
-          />
+          <Platform />
         </div>
       </section>
 
