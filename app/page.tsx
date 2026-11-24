@@ -30,6 +30,11 @@ export default function Home() {
     <>
       <Hero
         eyebrow="Done-for-you growth"
+        badges={[
+          ['$200M+ raised', 'By our clients'],
+          ['10,000+ meetings', 'Booked for clients'],
+          ['95% satisfaction', 'Across engagements'],
+        ]}
         title="Growth infrastructure for ambitious companies in motion."
         lead="Whether you're raising capital or generating customers, ThinkFISH has the expertise to accelerate your growth. Two specialized done-for-you services, one growth partner."
         stats={

@@ -9,7 +9,9 @@ export function Hero({
   lead,
   children,
   stats,
+  badges,
 }: {
+  badges?: [string, string][];
   eyebrow: string;
   title: string;
   lead: string;
@@ -18,13 +20,28 @@ export function Hero({
 }) {
   return (
     <section className="hero">
+      <div className="hero-stripes" aria-hidden="true" />
       <div className="wrap hero-pad">
-        <span className="eyebrow">{eyebrow}</span>
+        {badges ? (
+          <ul className="badges" aria-label="Recognition">
+            {badges.map(([a, b]) => (
+              <li key={a}>
+                <i aria-hidden="true" />
+                <span>
+                  <b>{a}</b>
+                  {b}
+                </span>
+              </li>
+            ))}
+          </ul>
+        ) : (
+          <span className="eyebrow">{eyebrow}</span>
+        )}
         <h1>{title}</h1>
         <p className="lead">{lead}</p>
         {children ? <div className="hero-cta">{children}</div> : null}
       </div>
-      {stats ? <div className="wrap hero-stats-wrap" style={{ paddingBottom: 88 }}>{stats}</div> : null}
+      {stats ? <div className="wrap hero-stats-wrap">{stats}</div> : null}
     </section>
   );
 }

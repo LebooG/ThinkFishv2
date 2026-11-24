@@ -92,9 +92,9 @@ export default function Nav() {
 
   return (
     <header className={`nav${scrolled ? ' scrolled' : ''}${open ? ' mega-open' : ''}`} onMouseLeave={leave}>
-      <div className="wrap">
+      <div className="nav-in">
         <Link className="brand" href="/" aria-label="ThinkFISH home" onClick={close}>
-          ThinkFISH
+          think<b>fish</b>
         </Link>
         <nav aria-label="Primary" className={`menu-wrap${mobile ? ' open' : ''}`}>
           <ul className="menu" id="menu">
@@ -118,11 +118,11 @@ export default function Nav() {
           </ul>
         </nav>
         <div className="nav-cta">
-          <Link className="btn btn-ghost btn-sm" href="/contact" onClick={close}>
-            Contact sales
+          <Link className="nav-login" href="/testimonials" onClick={close}>
+            Results
           </Link>
-          <Link className="btn btn-primary btn-sm" href="/raise#book-consultation" onClick={close}>
-            Get started
+          <Link className="btn btn-primary btn-sm" href="/contact" onClick={close}>
+            Contact Us
           </Link>
           <button className="burger" type="button" aria-label="Toggle menu" aria-expanded={mobile} aria-controls="menu" onClick={() => setMobile((v) => !v)}>
             ☰

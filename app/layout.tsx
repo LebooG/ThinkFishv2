@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from 'next';
 import Link from 'next/link';
 import type { ReactNode } from 'react';
+import Announce from '@/components/Announce';
 import Footer from '@/components/Footer';
 import JsonLd from '@/components/JsonLd';
 import Nav from '@/components/Nav';
@@ -57,10 +58,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <a className="skip" href="#main">
           Skip to main content
         </a>
-        <div className="announce">
-          New: ThinkFISH Raise and Motion — one growth partner for capital and customers.
-          <Link href="/contact">Book a call</Link>
-        </div>
+        <Announce />
         <Nav />
         <main id="main">{children}</main>
         <Footer />
