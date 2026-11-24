@@ -144,3 +144,10 @@ export const MEGA: MegaMenu[] = [
     },
   },
 ];
+
+/**
+ * Scheduling link (Calendly) used by every "Book a call" CTA — the original site books calls
+ * through Calendly rather than a form. Set NEXT_PUBLIC_CALENDLY_URL, e.g. https://calendly.com/<handle>/<event>.
+ * When unset, CTAs fall back to the /contact page.
+ */
+export const BOOKING_URL = process.env.NEXT_PUBLIC_CALENDLY_URL ?? '';

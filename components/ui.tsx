@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
+import { BookLink } from './BookCall';
 import type { ReactNode } from 'react';
 import Newsletter from './Newsletter';
 
@@ -19,7 +20,7 @@ export function Hero({
   stats?: ReactNode;
 }) {
   return (
-    <section className="hero">
+    <section className={badges ? 'hero hero-tall' : 'hero'}>
       <div className="hero-stripes" aria-hidden="true" />
       <div className="wrap hero-pad">
         {badges ? (
@@ -231,14 +232,12 @@ export function CtaBand({
   text,
   ticks,
   button,
-  href = '/contact',
 }: {
   id: string;
   title: string;
   text: string;
   ticks?: string[];
   button: string;
-  href?: string;
 }) {
   return (
     <div className="band" id={id}>
@@ -256,9 +255,7 @@ export function CtaBand({
             ) : null}
           </div>
           <div className="cta-actions">
-            <Link className="btn btn-light arrow" href={href}>
-              {button}
-            </Link>
+            <BookLink className="btn btn-light arrow">{button}</BookLink>
             <span style={{ color: '#737373', fontSize: 13.5 }}>Free 30-minute strategy session · No obligation</span>
           </div>
         </div>

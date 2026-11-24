@@ -1,9 +1,10 @@
+import { CaseDetails } from '@/components/CaseStudies';
 import JsonLd from '@/components/JsonLd';
 import TestimonialFilter, { type VideoItem } from '@/components/TestimonialFilter';
-import { Hero, NewsletterSection, SecHead, Stats, TestimonialCarousel } from '@/components/ui';
+import { CtaBand, Hero, NewsletterSection, SecHead, Stats, TestimonialCarousel } from '@/components/ui';
 import { breadcrumbJsonLd, buildMetadata, videoJsonLd, webPageJsonLd } from '@/lib/seo';
 
-const TITLE = 'Client Testimonials — Founder Success Stories';
+const TITLE = 'Case Studies & Client Testimonials';
 const DESC =
   'Hear from founders who raised capital and built sales pipelines with ThinkFISH. Real results from 500+ campaigns across fundraising and B2B lead generation.';
 
@@ -22,8 +23,8 @@ export default function TestimonialsPage() {
   return (
     <>
       <Hero
-        eyebrow="Client Success Stories"
-        title="Real results from real founders."
+        eyebrow="Case studies & testimonials"
+        title="Proof, in our clients' own words."
         lead="See how ThinkFISH has helped 500+ campaigns raise $200M+ in capital and generate thousands of qualified leads. These are their stories."
       />
       <section style={{ paddingTop: 0 }}>
@@ -39,18 +40,30 @@ export default function TestimonialsPage() {
           />
         </div>
       </section>
-      <section>
+      <section id="case-studies">
+        <div className="wrap">
+          <SecHead eyebrow="Case studies" title="How the work turns into results" lead="Program-wide outcomes across fundraising and B2B lead generation. Each engagement follows the same Problem → Approach → Outcome discipline." />
+          <CaseDetails />
+        </div>
+      </section>
+      <section className="sec-surface" id="videos">
         <div className="wrap">
           <SecHead eyebrow="Video" title="Video Success Stories" lead="Hear directly from founders who've achieved remarkable results with ThinkFISH" />
           <TestimonialFilter videos={VIDEOS} />
         </div>
       </section>
-      <section className="sec-surface">
+      <section id="feedback">
         <div className="wrap">
           <SecHead eyebrow="Feedback" title="Real Client Feedback" lead="Authentic testimonials and messages from our satisfied clients" />
           <TestimonialCarousel />
         </div>
       </section>
+      <CtaBand
+        id="book-a-call"
+        title="Want results like these?"
+        text="Book a free strategy session and we'll map out how ThinkFISH can raise your capital or fill your pipeline."
+        button="Book a strategy call"
+      />
       <NewsletterSection />
       <JsonLd
         data={[

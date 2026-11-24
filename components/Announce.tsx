@@ -1,5 +1,6 @@
 'use client';
 
+import { BOOKING_URL } from '@/lib/site';
 import Link from 'next/link';
 import { useState } from 'react';
 
@@ -12,7 +13,13 @@ export default function Announce() {
       <p>
         <span className="announce-tag">NEW</span>
         Proud to launch <b>ThinkFISH Raise &amp; Motion</b> — one growth partner for capital and customers.
-        <Link href="/contact">Book a call →</Link>
+        {BOOKING_URL ? (
+          <a href={BOOKING_URL} target="_blank" rel="noopener">
+            Book a call →
+          </a>
+        ) : (
+          <Link href="/contact">Book a call →</Link>
+        )}
       </p>
       <button type="button" className="announce-x" aria-label="Dismiss announcement" onClick={() => setOpen(false)}>
         ×

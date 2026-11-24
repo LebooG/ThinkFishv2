@@ -18,7 +18,7 @@ export default function CountUp({ prefix = '', end, suffix = '', duration = 1600
         io.disconnect();
         const t0 = performance.now();
         const tick = (t: number) => {
-          const p = Math.min((t - t0) / duration, 1);
+          const p = Math.min(Math.max((t - t0) / duration, 0), 1);
           setN(Math.round(end * (1 - Math.pow(1 - p, 3))));
           if (p < 1) raf = requestAnimationFrame(tick);
         };

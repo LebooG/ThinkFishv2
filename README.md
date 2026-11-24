@@ -30,7 +30,7 @@ Set `NEXT_PUBLIC_SITE_URL` (see `.env.example`) to the production domain so cano
 
 ## Things to wire up before launch
 
-- `components/ContactForm.tsx` composes a `mailto:` message; replace with your form service (Resend, Formspree, HubSpot…).
+- Set `NEXT_PUBLIC_CALENDLY_URL` to your Calendly event link — every "Book a call" CTA and the /contact page embed use it (falls back to /contact when unset).
 - `components/RoiCalculator.tsx` uses an illustrative 2.5× lead multiplier — replace with your real assumptions.
 - Set `GOOGLE_SITE_VERIFICATION` to emit the Search Console verification tag.
 - Team/testimonial images are loaded from `www.thinkfish.co`; move them into `/public` for best performance.

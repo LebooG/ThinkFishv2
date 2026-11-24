@@ -467,8 +467,9 @@ h2{font-weight:500;letter-spacing:-.025em}
 .mega-feature:hover{transform:none}
 
 /* hero — centered, striped backdrop, ruled stats */
-.hero{display:flex;flex-direction:column;justify-content:flex-end;min-height:min(820px,calc(100vh - 108px));padding:0;background:#fff}
-.hero-stripes{position:absolute;inset:0 0 40% 0;pointer-events:none;background:repeating-linear-gradient(115deg,rgba(10,31,38,.07) 0 46px,rgba(10,31,38,.02) 46px 92px);-webkit-mask-image:linear-gradient(180deg,#000 0%,transparent 100%);mask-image:linear-gradient(180deg,#000 0%,transparent 100%)}
+.hero{display:flex;flex-direction:column;justify-content:flex-end;padding:0;background:#fff}
+.hero-tall{min-height:min(820px,calc(100vh - 108px))}
+.hero-stripes{position:absolute;inset:0 0 30% 0;pointer-events:none;background:repeating-linear-gradient(115deg,rgba(10,31,38,.07) 0 46px,rgba(10,31,38,.02) 46px 92px);-webkit-mask-image:linear-gradient(180deg,#000 0%,transparent 100%);mask-image:linear-gradient(180deg,#000 0%,transparent 100%)}
 .hero .wrap{position:relative}
 .hero .hero-pad{justify-items:center;text-align:center;padding-top:96px;padding-bottom:56px;gap:24px}
 .hero h1{max-width:900px;font-size:clamp(40px,6vw,76px)}
@@ -505,3 +506,21 @@ h2{font-weight:500;letter-spacing:-.025em}
 .hero h1{max-width:1000px;font-size:clamp(38px,5vw,62px)}
 .hero .hero-pad{padding-top:72px}
 .mega-feature{min-height:300px}
+
+/* booking embed + case list */
+.book-embed{border:1px solid var(--line);border-radius:var(--radius-lg);overflow:hidden;background:#fff;display:grid}
+.book-embed iframe{width:100%;border:0;min-height:640px}
+.book-alt{padding:12px 20px;font-size:14px;font-weight:600;border-top:1px solid var(--line);color:var(--ink-2)}
+.book-alt:hover{color:var(--ink)}
+.book-empty{padding:40px;gap:14px;justify-items:start}
+.case-list{display:grid;gap:20px}
+.case-d{display:grid;grid-template-columns:1fr 1.3fr;gap:48px;border:1px solid var(--line);border-radius:var(--radius-lg);padding:40px;background:#fff;scroll-margin-top:100px}
+.case-d header{display:grid;gap:14px;align-content:start}
+.case-d h3{font-size:30px;letter-spacing:-.02em}
+.case-d .case-metric b{font-size:clamp(44px,5vw,64px)}
+.case-d .case-pao{align-content:start}
+@media(max-width:980px){.case-d{grid-template-columns:1fr;gap:28px;padding:26px}}
+
+.hero:not(.hero-tall) .hero-stripes{inset:0}
+.hero:not(.hero-tall) .hero-pad{padding-top:64px;padding-bottom:64px}
+.hero-tall .hero-stripes{inset:0 0 40% 0}

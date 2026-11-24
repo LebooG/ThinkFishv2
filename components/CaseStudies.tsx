@@ -2,7 +2,7 @@ import Link from 'next/link';
 import CountUp from './CountUp';
 import { SecHead } from './ui';
 
-type Case = {
+export type Case = {
   n: string;
   program: string;
   sector: string;
@@ -22,7 +22,7 @@ type Case = {
  * Program-level proof. Metrics are ThinkFISH's published, program-wide figures — not per-client
  * claims. Replace problem/approach/outcome copy with real client results as they are approved.
  */
-const CASES: Case[] = [
+export const CASES: Case[] = [
   {
     n: '01',
     program: 'Raise',
@@ -36,7 +36,7 @@ const CASES: Case[] = [
     problem: 'Founders spend months chasing investors who are not a fit for their stage or sector.',
     approach: 'Investor persona matching, a sharpened pitch deck and a managed multichannel outreach campaign.',
     outcome: 'More of the right investor meetings, booked faster, with feedback fed back into the raise.',
-    href: '/raise',
+    href: '/testimonials#case-01',
   },
   {
     n: '02',
@@ -50,7 +50,7 @@ const CASES: Case[] = [
     problem: 'Sales teams lose time on unqualified leads and inconsistent outbound.',
     approach: 'ICP definition, verified contact data, multi-touch campaigns and reply filtering.',
     outcome: 'A steady flow of sales-ready meetings, with performance reviewed and iterated each cycle.',
-    href: '/motion',
+    href: '/testimonials#case-02',
   },
   {
     n: '03',
@@ -64,7 +64,7 @@ const CASES: Case[] = [
     problem: 'Sponsors and managers rely on small networks and broker-led introductions.',
     approach: 'Curated investor and LP lists, tailored materials and targeted outreach.',
     outcome: 'Direct introductions to qualified capital partners, without broker dependency.',
-    href: '/real-estate',
+    href: '/testimonials#case-03',
   },
 ];
 
@@ -118,5 +118,49 @@ export default function CaseStudies() {
         </div>
       </div>
     </section>
+  );
+}
+
+/** Full-width case write-ups for the /testimonials page (anchors #case-01…). */
+export function CaseDetails() {
+  return (
+    <div className="case-list">
+      {CASES.map((c) => (
+        <article className="case-d" key={c.n} id={`case-${c.n}`}>
+          <header>
+            <span className="case-n">{c.n}</span>
+            <div className="chips">
+              <span className="chip">ThinkFISH {c.program}</span>
+              <span className="chip">{c.sector}</span>
+            </div>
+            <h3>{c.title}</h3>
+            <p className="muted">{c.summary}</p>
+            <div className="case-metric">
+              <b>
+                <CountUp prefix={c.prefix} end={c.end} suffix={c.suffix} />
+              </b>
+              <span>{c.metric}</span>
+            </div>
+          </header>
+          <dl className="case-pao">
+            <div>
+              <dt>Problem</dt>
+              <dd>{c.problem}</dd>
+            </div>
+            <div>
+              <dt>Approach</dt>
+              <dd>{c.approach}</dd>
+            </div>
+            <div>
+              <dt>Outcome</dt>
+              <dd>{c.outcome}</dd>
+            </div>
+            <Link className="case-link" href={c.program === 'Raise' ? '/raise' : '/motion'}>
+              How {c.program} works <span aria-hidden="true">→</span>
+            </Link>
+          </dl>
+        </article>
+      ))}
+    </div>
   );
 }

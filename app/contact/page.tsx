@@ -1,4 +1,4 @@
-import ContactForm from '@/components/ContactForm';
+import { CalendlyEmbed } from '@/components/BookCall';
 import JsonLd from '@/components/JsonLd';
 import { Hero } from '@/components/ui';
 import { breadcrumbJsonLd, buildMetadata, webPageJsonLd } from '@/lib/seo';
@@ -15,7 +15,7 @@ export default function ContactPage() {
     <>
       <Hero
         eyebrow="Contact Us"
-        title="Let's start a conversation."
+        title="Book a call with our team."
         lead="Ready to accelerate your fundraising or scale your go-to-market strategy? Our team is here to help you achieve your goals."
       />
       <section style={{ paddingTop: 0 }}>
@@ -59,7 +59,7 @@ export default function ContactPage() {
                 </p>
               </div>
             </div>
-            <ContactForm />
+            <CalendlyEmbed />
           </div>
         </div>
       </section>
